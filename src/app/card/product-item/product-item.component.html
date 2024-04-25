@@ -1,0 +1,49 @@
+<!-- <div class="bg-dark text-light p-5 m-5 rounded">
+    <h1>Product Name {{ myProduct.name }}</h1>
+  </div>  -->
+   
+  <div class="product-card">
+    <span
+          class="stock product-alert"
+          *ngIf="myProduct.quantity === 0"
+          class="badge badge-danger bg-danger p-2"
+          >Out Of Stock
+    </span>
+    <span
+          class="stock product-alert"
+          *ngIf="myProduct.quantity === 1"
+          class="badge badge-warning bg-warning p-2"
+          >Only One Available
+    </span>
+    <img class="text-center" src="../../../../assets/images/{{myProduct.imgSrc}}" alt="">
+  <div class="product-details">
+    <h4><a href="">{{myProduct.name}}</a></h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+    <div class="product-bottom-details">
+      <div class="product-price d-flex justify-content-between w-100">
+        <div class="price">
+          <small>$96.00</small>{{myProduct.price}}
+        </div>
+          
+          <div>
+            <button [ngClass]="{
+                        'btn-outline-muted': myProduct.quantity === 0,
+                        'btn-outline-warning': myProduct.quantity === 1,
+                        'btn-outline-success': myProduct.quantity > 1,
+
+                        }"
+                    [disabled]="myProduct.quantity === 0" class="btn justify-item-centre py-1 px-3">
+              Add to Cart
+            </button>
+          </div>
+          
+      </div>
+      <div class="product-links">
+        <a href=""><i class="fa fa-heart"></i></a>
+        <a href=""><i class="fa fa-shopping-cart"></i></a>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
